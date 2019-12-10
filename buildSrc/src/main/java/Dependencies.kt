@@ -26,7 +26,7 @@ object Dependencies {
 
     object Koin {
         private const val version = "2.0.1"
-        private const val architecture_version = "0.8.2"
+        private const val architecture_version = "0.9.3"
         const val core = "org.koin:koin-core:$version"
         const val android = "org.koin:koin-android:$version"
         const val viewmodel = "org.koin:koin-android-viewmodel:$version"

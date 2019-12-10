@@ -6,6 +6,6 @@ interface NewsListRepositoryContract {
 
 class NewsListRepository: NewsListRepositoryContract {
     override fun greeting(): String {
-        return "Hello World!"
+        return "Hello World!!!!!!!"
     }
 }
