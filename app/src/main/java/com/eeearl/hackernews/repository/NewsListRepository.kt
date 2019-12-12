@@ -1,11 +1,22 @@
 package com.eeearl.hackernews.repository
 
+import com.eeearl.hackernews.network.ApiClient
+
 interface NewsListRepositoryContract {
     fun greeting(): String
 }
 
-class NewsListRepository: NewsListRepositoryContract {
+class NewsListRepository(private val service: ApiClient): NewsListRepositoryContract {
     override fun greeting(): String {
-        return "Hello World!!!!!!!"
+
+        runBlocking {
+    val a = service.newStories()
+}
+
+
+        //service.newStories().
+
+            return "Hello World!!!!!!!"
+
     }
 }

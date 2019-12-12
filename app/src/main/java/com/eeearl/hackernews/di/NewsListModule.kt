@@ -11,5 +11,6 @@ var NewsListModule = module {
     //
     viewModel { NewsListViewModel(get()) }
 
-    single { NewsListRepository() as NewsListRepositoryContract }
+    single { NewsListRepository(get()) as NewsListRepositoryContract }
+
 }

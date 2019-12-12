@@ -41,6 +41,9 @@ dependencies {
     implementation(Dependencies.AndroidX.constraintLayout)
     implementation(Dependencies.AndroidX.recyclerView)
 
+    // Netowkring
+    implementation(Dependencies.Network.retrofit)
+    implementation(Dependencies.Network.okhttp)
 
     // Koin
     implementation(Dependencies.Koin.core)

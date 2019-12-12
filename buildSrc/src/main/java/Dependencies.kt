@@ -34,9 +34,11 @@ object Dependencies {
     }
 
     object Network {
-        const val retrofit = "com.squareup.retrofit2:retrofit:2.6.2"
+        private const val retrofit_version = "2.7.0"
+        private const val okhttp_version = "4.2.2"
+        const val retrofit = "com.squareup.retrofit2:retrofit:$retrofit_version"
         const val gson = "com.google.code.gson:gson:2.8.6"
-        const val okhttp = "com.squareup.okhttp3:okhttp:4.2.2"
+        const val okhttp = "com.squareup.okhttp3:okhttp:$okhttp_version"
     }
 
     object Test {
