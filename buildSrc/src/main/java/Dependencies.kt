@@ -1,8 +1,9 @@
 object Dependencies {
 
     object Kotlin {
-        const val stdLib = "stdlib-jdk7"
+        const val stdLib = "stdlib-jdk8"
         const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.2"
+        const val coroutines_android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.2"
     }
 
     object AndroidX {
@@ -13,7 +14,7 @@ object Dependencies {
         const val recyclerView = "androidx.recyclerview:recyclerview:1.0.0"
 
         object Lifecycle {
-            private const val version = "2.0.0"
+            private const val version = "2.1.0-alpha04"
             const val extension = "androidx.lifecycle:lifecycle-extensions:${version}"
             const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${version}"
         }
@@ -38,6 +39,7 @@ object Dependencies {
         private const val okhttp_version = "4.2.2"
         const val retrofit = "com.squareup.retrofit2:retrofit:$retrofit_version"
         const val gson = "com.google.code.gson:gson:2.8.6"
+        const val gson_converter = "com.squareup.retrofit2:converter-gson:$retrofit_version"
         const val okhttp = "com.squareup.okhttp3:okhttp:$okhttp_version"
     }
 

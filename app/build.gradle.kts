@@ -34,16 +34,22 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(kotlin(Dependencies.Kotlin.stdLib, KotlinCompilerVersion.VERSION))
+    implementation(Dependencies.Kotlin.coroutines)
+    implementation(Dependencies.Kotlin.coroutines_android)
 
     // Android
     implementation(Dependencies.AndroidX.appCompat)
     implementation(Dependencies.AndroidX.ktx)
     implementation(Dependencies.AndroidX.constraintLayout)
     implementation(Dependencies.AndroidX.recyclerView)
+    implementation(Dependencies.AndroidX.Lifecycle.viewModel)
+    implementation(Dependencies.AndroidX.Lifecycle.extension)
 
     // Netowkring
     implementation(Dependencies.Network.retrofit)
     implementation(Dependencies.Network.okhttp)
+    implementation(Dependencies.Network.gson)
+    implementation(Dependencies.Network.gson_converter)
 
     // Koin
     implementation(Dependencies.Koin.core)

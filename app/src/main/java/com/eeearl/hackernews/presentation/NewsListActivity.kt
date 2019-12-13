@@ -5,6 +5,8 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.eeearl.R
 import com.eeearl.databinding.ActivityMainBinding
+import com.eeearl.hackernews.presentation.binding.NewsBindingAdapter.setList
+import com.eeearl.hackernews.presentation.newslist.NewsListAdapter
 import com.eeearl.hackernews.presentation.newslist.NewsListViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -19,7 +21,9 @@ class MainActivity : AppCompatActivity() {
             this, R.layout.activity_main)
         binding.viewModel = viewModel
 
-        binding.tvSample.text = viewModel.greeting()
+        val adapter = NewsListAdapter(arrayListOf())
+        binding.rvNews.adapter = adapter
 
+        viewModel.topNews()
     }
 }

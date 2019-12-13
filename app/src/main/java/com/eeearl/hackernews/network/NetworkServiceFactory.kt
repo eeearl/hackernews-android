@@ -1,7 +1,9 @@
 package com.eeearl.hackernews.network
 
+import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 object NetworkServiceFactory {
 
@@ -11,8 +13,10 @@ object NetworkServiceFactory {
     }
 
     private fun createHackerNewsService(baseUrl: String, okHttpClient: OkHttpClient): ApiClient {
+        val gsonBuilder = GsonBuilder().create()
         return Retrofit.Builder()
             .baseUrl(baseUrl)
+            .addConverterFactory(GsonConverterFactory.create(gsonBuilder))
             .client(okHttpClient)
             .build()
             .create(ApiClient::class.java)
