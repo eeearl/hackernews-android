@@ -1,12 +1,16 @@
 package com.eeearl.hackernews.repository
 
 import com.eeearl.hackernews.network.ApiClient
+import com.eeearl.hackernews.network.Result
 import com.google.gson.Gson
+import com.google.gson.JsonObject
+import com.google.gson.annotations.SerializedName
 import kotlinx.coroutines.*
 
 interface NewsListRepositoryContract {
     suspend fun topNews(): List<Int>
     fun recentNews(): List<Int>
+    suspend fun loadItem(id: Int, success: ((response: NewsItem) -> Unit)?)
 }
 
 class NewsListRepository(
@@ -19,7 +23,9 @@ class NewsListRepository(
         launch {
             val response = service.topStories()
             when (response.isSuccessful) {
-                true -> gson.fromJson(response.body(), Array<Int>::class.java).iterator().forEach { list.add(it) } //response.body(). .let { it as Array<Int> }.asIterable().forEach { list.add(it) }
+                true -> gson.fromJson(response.body(), Array<Int>::class.java)
+                    .iterator()
+                    .forEach { list.add(it) }
             }
         }
 
@@ -38,4 +44,22 @@ class NewsListRepository(
 
         return list
     }
+
+    override suspend fun loadItem(id: Int, success: ((response: NewsItem) -> Unit)?) {
+        coroutineScope {
+            val response = service.loadItem(id)
+            val item: NewsItem? = when (response.isSuccessful) {
+                true -> gson.fromJson(response.body(), NewsItem::class.java)
+                else -> null
+            }
+
+            success?.invoke(item!!)
+        }
+
+    }
 }
+
+data class NewsItem (
+    @SerializedName("title") val _title: String,
+    @SerializedName("id") val _id: String
+    )

@@ -16,4 +16,5 @@ var NewsListModule = module {
     single { GsonBuilder().create() }
     single { NewsListRepository(get(), get()) as NewsListRepositoryContract }
     single { NetworkServiceFactory.service("https://hacker-news.firebaseio.com/v0/") }
+
 }
