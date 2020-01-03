@@ -8,21 +8,18 @@ import retrofit2.http.Path
 
 interface ApiClient {
 
+    @GET("topstories.json?print=pretty&orderBy=\"\$key\"&limitToFirst=30")
+    suspend fun topStories(): Response<JsonArray>
+
     @GET("newstories.json?print=pretty")
     suspend fun newStories(): Response<JsonObject>
 
     @GET("askstories.json?print=pretty")
     suspend fun askStories(): List<Int>
 
-    @GET("topstories.json?print=pretty")
-    suspend fun topStories(): Response<JsonArray>
-
     @GET("jobstories.json?print=pretty")
     suspend fun jobStories(): List<Int>
 
     @GET("item/{id}.json?print=pretty")
     suspend fun loadItem(@Path("id") id: Int): Response<JsonObject>
-
-    //@GET
-    //suspend fun itemDetails(@Url url:String):Deferred<ItemModel>
 }

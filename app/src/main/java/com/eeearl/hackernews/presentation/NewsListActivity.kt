@@ -14,7 +14,6 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class MainActivity : AppCompatActivity() {
 
     val viewModel by viewModel<NewsListViewModel>()
-    val apiClient by inject<NewsListRepositoryContract>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +22,7 @@ class MainActivity : AppCompatActivity() {
             this, R.layout.activity_main)
         binding.viewModel = viewModel
 
-        val adapter = NewsListAdapter(arrayListOf(), apiClient)
+        val adapter = NewsListAdapter(arrayListOf())
         binding.rvNews.adapter = adapter
 
         viewModel.topNews()

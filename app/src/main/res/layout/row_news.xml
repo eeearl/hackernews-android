@@ -4,20 +4,30 @@
         <variable
             name="itemId"
             type="String" />
+
         <variable
-            name="title"
-            type="String" />
+            name="data"
+            type="com.eeearl.hackernews.repository.NewsItem" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{data._title}"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:text="@{title}"/>
+            android:text="@{data.score}"/>
 
     </LinearLayout>
 </layout>
